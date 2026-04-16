@@ -11,8 +11,8 @@ public class ALEST2_T1{
 
     public static void main(String args[]){
         
-    final String numeroCaso = "x16.txt";
-    final String caminhoArquivo = "CasosTeste-32/";
+    final String numeroCaso = "t30_03.txt";
+    final String caminhoArquivo = "casos_30/";
     String primeiraLetra = "";
         
     try {

@@ -46,14 +46,14 @@ public class ALEST2_T1 {
             System.out.println("Aviso: 'c' não possui regra, será tratada como letra final.");
         }
 
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
         long resultado = expandir(primeiraLetra);
-        long endingTime = System.currentTimeMillis();
+        long endingTime = System.nanoTime();
 
-        long totalTime = endingTime - startTime;
+        double totalTime = (endingTime - startTime) / 1_000_000.0;
 
         System.out.println("Tamanho Final: " + resultado);
-        System.out.println("\nTempo decorrido: " + totalTime + " ms");
+        System.out.printf("Tempo decorrido: %.3f ms\n", totalTime);
     }
 
     public static long expandir(String palavra) {
@@ -74,7 +74,6 @@ public class ALEST2_T1 {
                 memo.put(letra, tamanhoSubarvore);
                 quant += tamanhoSubarvore;
             } else {
-                // Letra sem regra conta como 1
                 quant += 1;
             }
         }

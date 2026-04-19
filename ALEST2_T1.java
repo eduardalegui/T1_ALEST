@@ -14,7 +14,7 @@ public class ALEST2_T1 {
         final String numeroCaso = "t30_01.txt";
         final String caminhoArquivo = "casos_30/";
 
-        String primeiraLetra = "c";
+        String primeiraLetra = "v";
 
         try {
             File casoUso = new File(caminhoArquivo + numeroCaso);

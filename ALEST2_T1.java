@@ -11,7 +11,7 @@ public class ALEST2_T1 {
 
     public static void main(String args[]) {
 
-        final String numeroCaso = "t30_01.txt";
+        final String numeroCaso = "t30_02.txt";
         final String caminhoArquivo = "casos_30/";
 
         String primeiraLetra = "v";
@@ -42,8 +42,8 @@ public class ALEST2_T1 {
             return;
         }
 
-        if (!regras.containsKey('c')) {
-            System.out.println("Aviso: 'c' não possui regra, será tratada como letra final.");
+        if (!regras.containsKey('v')) {
+            System.out.println("Aviso: 'v' não possui regra, será tratada como letra final.");
         }
 
         long startTime = System.nanoTime();

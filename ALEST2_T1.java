@@ -11,10 +11,8 @@ public class ALEST2_T1 {
 
     public static void main(String args[]) {
 
-        final String numeroCaso = "t30_02.txt";
+        final String numeroCaso = "t30_01.txt";
         final String caminhoArquivo = "casos_30/";
-
-        String primeiraLetra = "v";
 
         try {
             File casoUso = new File(caminhoArquivo + numeroCaso);
@@ -42,18 +40,39 @@ public class ALEST2_T1 {
             return;
         }
 
-        if (!regras.containsKey('v')) {
-            System.out.println("Aviso: 'v' não possui regra, será tratada como letra final.");
-        }
+        Character primeiraLetra = encontrarPrimeiraLetra();
+        
 
         long startTime = System.nanoTime();
-        long resultado = expandir(primeiraLetra);
+        long resultado = expandir(primeiraLetra.toString());
         long endingTime = System.nanoTime();
 
         double totalTime = (endingTime - startTime) / 1_000_000.0;
 
         System.out.println("Tamanho Final: " + resultado);
         System.out.printf("Tempo decorrido: %.3f ms\n", totalTime);
+        System.out.println("Primeira letra: "+ primeiraLetra);
+    }
+
+    public static Character encontrarPrimeiraLetra() {
+        String chave = "";
+
+        for(Character c : regras.keySet()) {
+            boolean encontrouLetra = false;
+
+            for(String valor : regras.values()) {
+                if(valor.contains(c.toString())){
+                    encontrouLetra = true;
+                    break;
+                }
+            }
+
+            if(!encontrouLetra) {
+                return c;
+            }
+        }
+
+        return null;
     }
 
     public static long expandir(String palavra) {
